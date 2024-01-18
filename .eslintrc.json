@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es2020": true
+  },
+  "extends": ["standard"],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "quotes": ["error", "double"],
+    "semi": [2, "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "prefer-promise-reject-errors": ["error", "always"]
+  }
+}
