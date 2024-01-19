@@ -25,3 +25,5 @@ export const validateFileType = (file: FileType) => {
   const validTypes = ["text/csv"];
   return validTypes.includes(file.mimetype);
 };
+
+export const add = (a, b) => a + b;
