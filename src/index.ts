@@ -4,6 +4,7 @@ import cors from "cors";
 import logger from "morgan";
 import helmet from "helmet";
 import compression from "compression";
+import routes from "./routes";
 
 // Dotenv invocation
 dotenv.config();
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const port = process.env.PORT;
+
+app.use("/", routes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
