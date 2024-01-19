@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import { FileType } from "../@types";
 
 export const csvToArray = (csv: string | Buffer, flatten?: boolean) => {
   const csvString = csv as string;
@@ -19,3 +20,8 @@ export const readFileFromPath = (path: string) => {
 };
 
 export const transpose = (arr) => arr[0].map((x, i) => arr.map((x) => x[i]));
+
+export const validateFileType = (file: FileType) => {
+  const validTypes = ["text/csv"];
+  return validTypes.includes(file.mimetype);
+};
