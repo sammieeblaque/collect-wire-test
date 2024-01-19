@@ -13,8 +13,8 @@ export const csvToArray = (csv: string | Buffer, flatten?: boolean) => {
   return flatten ? result.flat(Infinity) : result;
 };
 
-export const readFileFromPath = () => {
-  let data = fs.readFileSync("matrix.csv", { encoding: "utf-8" });
+export const readFileFromPath = (path: string) => {
+  let data = fs.readFileSync(path, { encoding: "utf-8" });
   return data;
 };
 

@@ -1,8 +1,11 @@
+import { FileType } from "../@types";
 import { csvToArray, readFileFromPath, transpose } from "../utils";
 
 export const inverseCsvData = async (req, res) => {
+  const file: FileType = req.file;
+
   try {
-    const csvFile = await readFileFromPath();
+    const csvFile = await readFileFromPath(file.path);
     const data = csvToArray(csvFile);
     const inverseData = transpose(data);
     const formatedInverseData = inverseData
