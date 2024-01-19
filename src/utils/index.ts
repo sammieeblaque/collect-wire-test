@@ -15,7 +15,7 @@ export const csvToArray = (csv: string | Buffer, flatten?: boolean) => {
 };
 
 export const readFileFromPath = (path: string) => {
-  let data = fs.readFileSync(path, { encoding: "utf-8" });
+  const data = fs.readFileSync(path, { encoding: "utf-8" });
   return data;
 };
 
