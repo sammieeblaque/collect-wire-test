@@ -41,3 +41,9 @@ cd collect-wire-test
 ## Simple build for production
 
     yarn build / npm run build
+
+## N.B The tests could've have been seperated into different files, but condidering it was jsut one endpoint for both, decided to add them in one file
+
+## N.B The controllers could've also been in one file considering it's just one endpoint each but ultimately decided to separate them
+
+### N.B Assuming the logic was becoming longer than it already was, some of the logic could be broken down into services
