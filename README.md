@@ -24,23 +24,23 @@ cd collect-wire-test
 
 ## Running the project
 
-    yarn start / npm run  start
+    yarn start / npm start
 
 ## Running the project on dev mode
 
-    yarn dev / npm run  dev
+    yarn dev / npm dev
 
 ## Running tests on the project
 
-    yarn test / npm run  test
+    yarn test / npm test
 
 ## Watch running tests
 
-    yarn test:watch / npm run test:watch
+    yarn test:watch / npm test:watch
 
 ## Simple build for production
 
-    yarn build / npm run build
+    yarn build / npm build
 
 ## N.B The controllers could've also been in one file considering it's just one endpoint each but ultimately decided to separate them
 
