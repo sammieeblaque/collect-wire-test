@@ -27,3 +27,37 @@ export const validateFileType = (file: FileType) => {
 };
 
 export const add = (a, b) => a + b;
+
+export const isValidMatrix = (matrix) => {
+  // Check if the matrix is not empty
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return false;
+  }
+
+  // Check if all rows have the same number of columns
+  const numColumns = matrix[0].length;
+  for (let i = 1; i < matrix.length; i++) {
+    if (matrix[i].length !== numColumns) {
+      return false;
+    }
+  }
+
+  // If all checks pass, the matrix is valid
+  return true;
+};
+
+// Example usage:
+const validMatrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+const invalidMatrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8],
+];
+
+console.log(isValidMatrix(validMatrix)); // Output: true
+console.log(isValidMatrix(invalidMatrix)); // Output: false
