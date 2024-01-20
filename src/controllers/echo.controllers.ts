@@ -1,5 +1,5 @@
 import { FileType } from "../@types";
-import { readFileFromPath, validateFileType } from "../utils";
+import { isValidCSV, readFileFromPath, validateFileType } from "../utils";
 
 export const echoCsvData = async (req, res) => {
   try {
@@ -17,6 +17,13 @@ export const echoCsvData = async (req, res) => {
       });
     }
     const data = await readFileFromPath(file.path);
+    // Checks if csv input is valid
+    if (!isValidCSV(data)) {
+      return res.status(422).json({
+        status: 422,
+        message: "Invalid csv input",
+      });
+    }
     res.send(data);
   } catch (error) {
     if (error) {

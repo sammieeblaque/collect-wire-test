@@ -1,5 +1,10 @@
 import { Response } from "express";
-import { csvToArray, readFileFromPath, validateFileType } from "../utils";
+import {
+  csvToArray,
+  isValidCSV,
+  readFileFromPath,
+  validateFileType,
+} from "../utils";
 import { FileType } from "../@types";
 
 export const flattenCsvData = async (req, res: Response) => {
@@ -18,6 +23,12 @@ export const flattenCsvData = async (req, res: Response) => {
       });
     }
     const csvFile = await readFileFromPath(file.path);
+    if (!isValidCSV(csvFile)) {
+      return res.status(422).json({
+        status: 422,
+        message: "Invalid csv input",
+      });
+    }
     const data = csvToArray(csvFile, true).toString();
     res.send(data);
   } catch (error) {

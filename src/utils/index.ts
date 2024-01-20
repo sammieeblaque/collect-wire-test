@@ -59,5 +59,28 @@ const invalidMatrix = [
   [7, 8],
 ];
 
-console.log(isValidMatrix(validMatrix)); // Output: true
-console.log(isValidMatrix(invalidMatrix)); // Output: false
+export const isValidCSV = (csvInput) => {
+  // Split the CSV input into rows
+  const rows = csvInput.split("\n");
+
+  // Check if there is at least one row
+  if (rows.length === 0) {
+    return false;
+  }
+
+  // Get the number of columns in the first row
+  const numColumns = rows[0].split(",").length;
+
+  // Check the number of columns in each row
+  for (let i = 0; i < rows.length; i++) {
+    const columns = rows[i].split(",");
+
+    // Check if the number of columns is consistent
+    if (columns.length !== numColumns) {
+      return false;
+    }
+  }
+
+  // If all checks pass, the CSV is valid
+  return true;
+};

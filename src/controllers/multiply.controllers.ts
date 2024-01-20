@@ -1,4 +1,9 @@
-import { csvToArray, readFileFromPath, validateFileType } from "../utils";
+import {
+  csvToArray,
+  isValidCSV,
+  readFileFromPath,
+  validateFileType,
+} from "../utils";
 import { FileType } from "../@types";
 
 export const multitplyCsvData = async (req, res) => {
@@ -10,6 +15,7 @@ export const multitplyCsvData = async (req, res) => {
       });
     }
     const file: FileType = req.file;
+    // checks if file is of valid type
     if (!validateFileType(file)) {
       return res.json({
         status: 406,
@@ -17,6 +23,14 @@ export const multitplyCsvData = async (req, res) => {
       });
     }
     const csvFile = await readFileFromPath(file.path);
+
+    // Checks if csv input is valid
+    if (!isValidCSV(csvFile)) {
+      return res.status(422).json({
+        status: 422,
+        message: "Invalid csv input",
+      });
+    }
     const data = csvToArray(csvFile, true).reduce((a, b) => a * b);
     res.json(data);
   } catch (error) {
