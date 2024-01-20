@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import app from "./app";
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+  res.send("Collect Wire Test");
 });
 
 const port = process.env.PORT || 8088;
