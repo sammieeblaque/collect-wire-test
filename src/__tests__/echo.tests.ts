@@ -1,11 +1,10 @@
 import request from "supertest";
 import fs from "fs";
-import path from "path";
 
 import app from "../app";
 
 describe("Testing endpoints returns correct values", () => {
-  const filePath = path.resolve("matrix.csv");
+  const filePath = `${__dirname}/mocks/matrix.csv`;
 
   test("testing echo endpoint", async () => {
     if (!fs.existsSync(filePath)) {
