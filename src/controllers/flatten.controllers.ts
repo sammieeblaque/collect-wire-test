@@ -5,7 +5,7 @@ import {
   readFileFromPath,
   validateFileType,
 } from "../utils";
-import { FileType } from "../@types";
+import { FileType } from "../types/@types";
 
 export const flattenCsvData = async (req, res: Response) => {
   try {

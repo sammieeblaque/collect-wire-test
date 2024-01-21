@@ -4,7 +4,7 @@ import {
   readFileFromPath,
   validateFileType,
 } from "../utils";
-import { FileType } from "../@types";
+import { FileType } from "../types/@types";
 
 export const multitplyCsvData = async (req, res) => {
   try {

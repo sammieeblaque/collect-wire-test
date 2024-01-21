@@ -1,4 +1,4 @@
-import { FileType } from "../@types";
+import { FileType } from "../types/@types";
 import { isValidCSV, readFileFromPath, validateFileType } from "../utils";
 
 export const echoCsvData = async (req, res) => {

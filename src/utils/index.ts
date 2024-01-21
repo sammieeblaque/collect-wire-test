@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { FileType } from "../@types";
+import { FileType } from "../types/@types";
 
 export const csvToArray = (csv: string | Buffer, flatten?: boolean) => {
   const csvString = csv as string;
