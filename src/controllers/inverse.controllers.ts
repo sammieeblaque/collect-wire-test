@@ -32,7 +32,7 @@ export const inverseCsvData = async (req, res) => {
         message: "Invalid csv input",
       });
     }
-    const data = csvToArray(csvFile);
+    const data: string[][] = csvToArray(csvFile);
 
     // Checks if matrix input is valid
     if (!isValidMatrix(data)) {
